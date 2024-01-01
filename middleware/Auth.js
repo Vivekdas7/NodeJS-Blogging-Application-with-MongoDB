@@ -3,7 +3,7 @@ function checkForAuthenticationCookie(cookieName){
     return(req,res,next)=>{
     const tokenCookieValue=req.cookies[cookieName];
     if(!tokenCookieValue){
-        next();
+       return next();
     }
     try{
     const userPaylod=ValidateToken(tokenCookieValue);
@@ -12,7 +12,7 @@ function checkForAuthenticationCookie(cookieName){
         
 
     }
-    next();
+   return next();
 
 };
 }
